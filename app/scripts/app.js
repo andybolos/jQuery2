@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
     var listo = [];
 
     $('#newTaskForm').hide();
@@ -15,7 +16,7 @@ $(document).ready(function() {
             listo.push(task);
 
             $('#newItemInput').val('');
-            $('#newList').append('<a href="#" class="" id="item"><li class="list-group-item">' + task.task + '<span class="arrow pull-right"><i class="glyphicon glyphicon-arrow-right"></span></li></a>');
+            $('#newList').append('<div class="list-item"><a href="#" class="" id="item"><li class="list-group-item no-bullet">' + task.task + '<span class="arrow pull-right"><i class="glyphicon glyphicon-arrow-right"></span></li></a></div>');
         }
         $('#newTaskForm, #newListItem').fadeToggle('fast', 'linear');
 
@@ -42,6 +43,22 @@ $(document).ready(function() {
         $('#newTaskForm, #newListItem').fadeToggle('fast', 'linear');
     });
 
+    var advanceTask = function(task) {
+        var modified = task.innerText.trim()
+        for (var i = 0; i < listo.length; i++) {
+            if (listo[i].task === modified) {
+                if (listo[i].id === 'new') {
+                    listo[i].id = 'inProgress';
+                } else if (listo[i].id === 'inProgress') {
+                    listo[i].id = 'archived';
+                } else {
+                    listo.splice(i, 1);
+                }
+                break;
+            }
+        }
+        task.remove();
+    };
 
 
     $(document).on('click', '#item', function(e) {

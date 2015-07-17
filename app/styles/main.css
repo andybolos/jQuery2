@@ -1,8 +1,54 @@
+html {
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+
 body {
-    background: #777;
+    background: green;
 }
 
 .panel {
     display: inline-block;
     width: 33%;
+    text-align: center;
+    outline: 1px red solid;
+
+}
+
+.wrap {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+ul {
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: coral;
+}
+
+form {
+    margin: 20px;
+}
+
+.list-item {
+    background: #fff;
+}
+
+.no-bullet {
+    list-style-type: none;
 }
