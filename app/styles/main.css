@@ -1,0 +1,8 @@
+body {
+    background: #777;
+}
+
+.panel {
+    display: inline-block;
+    width: 33%;
+}
